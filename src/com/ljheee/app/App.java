@@ -13,10 +13,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import com.ljheee.paint.ui.PaintUI;
 import com.ljheee.snip.MainUI;
 
 /**
- * 
+ * 应用程序类---程序启动
  * @author ljheee
  *
  */
@@ -26,7 +27,6 @@ public class App {
 
 	/**
 	 * 添加系统托盘
-	 * 
 	 * @author ljheee
 	 *
 	 */
@@ -79,7 +79,12 @@ public class App {
 
 						public void actionPerformed(ActionEvent e) {
 							// 这里调用画图工具
-							System.out.println("画图工具");
+							new Thread(new Runnable() {
+								@Override
+								public void run() {
+									new PaintUI();
+								}
+							}).start();
 						}
 
 					});
