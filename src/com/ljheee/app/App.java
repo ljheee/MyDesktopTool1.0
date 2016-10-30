@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import com.ljheee.snip.MainUI;
+
 /**
  * 
  * @author ljheee
@@ -64,10 +66,15 @@ public class App {
 
 						public void actionPerformed(ActionEvent e) {
 							// 这里调用截图功能
-							System.out.println("截图功能");
+							new Thread(new Runnable() {
+								@Override
+								public void run() {
+									new MainUI();
+								}
+							}).start();
 						}
-
 					});
+					
 					paintItem.addActionListener(new ActionListener() {
 
 						public void actionPerformed(ActionEvent e) {
